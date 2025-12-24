@@ -44,11 +44,11 @@ const NavbarItem = ({
 }
 
 const navbarItems = [
-    { href: "/", children: "Inicio"},
-    { href: "/about", children: "Sobre"},
-    { href: "/features", children: "Recursos"},
-    { href: "/pricing", children: "Preços"},
-    { href: "/contact", children: "Contato"},
+    { href: "/", children: "Home"},
+    { href: "/about", children: "About"},
+    { href: "/features", children: "Features"},
+    { href: "/pricing", children: "Pricing"},
+    { href: "/contact", children: "Contact"},
 ];
 
 export const Navbar = () => {
@@ -59,7 +59,7 @@ export const Navbar = () => {
         <nav className="h-20 flex border-b justify-between font-medium bg-white">
             <Link href="/" className="pl-6 flex items-center"> 
                 <span className={cn("text-5xl font-semibold", poppins.className)}>
-                    Loja
+                    Store
                 </span>
             </Link>
 
@@ -89,7 +89,7 @@ export const Navbar = () => {
                   className="border-l border-t-0 border-b-0 border-r-0 px-12 h-full rounded-none bg-white hover:bg-pink-400 transition-colors text-lg"
                 >
                     <Link href="/sign-in">
-                        Entrar
+                        Sign In
                     </Link>
                     
                 </Button>
@@ -98,7 +98,7 @@ export const Navbar = () => {
                   className="border-l border-t-0 border-b-0 border-r-0 px-12 h-full rounded-none bg-black text-white hover:bg-pink-400 hover:text-black transition-colors text-lg"
                 >
                     <Link href="/sign-up">
-                        Começe a vender
+                        Start to sell
                     </Link>
                 </Button>
             </div>
