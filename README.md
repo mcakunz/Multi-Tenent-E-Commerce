@@ -15,6 +15,8 @@ Main goal: get comfortable with these tools and understand how they work togethe
 - Tailwind  
 - MongoDB  
 - Stripe Connect
+
+- Payload framework
 ---
 
 ## Features
