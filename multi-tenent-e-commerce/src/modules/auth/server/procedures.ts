@@ -2,8 +2,8 @@ import { baseProcedure, createTRPCRouter } from "@/trpc/init";
 import { TRPCError } from "@trpc/server";
 import { register } from "module";
 import { headers as getHeaders, cookies as getCookies } from "next/headers";
-import { AUTH_COOKIE } from "../constants";
 import { loginSchema, registerSchema } from "../schemas";
+import { generateAuthCookie } from "../utils";
 
 export const authRouter = createTRPCRouter({
     session: baseProcedure.query(async ({ ctx }) => {
@@ -13,10 +13,7 @@ export const authRouter = createTRPCRouter({
 
         return session;
     }),
-    logout: baseProcedure.mutation(async () => {
-        const cookies = await getCookies();
-        cookies.delete(AUTH_COOKIE);
-    }),
+    
     register: baseProcedure
         .input(registerSchema)
         .mutation(async ({ input, ctx}) => {
@@ -62,18 +59,7 @@ export const authRouter = createTRPCRouter({
                 });
             }
 
-            const cookies = await getCookies();
-            cookies.set({
-                name: AUTH_COOKIE,
-                value: data.token,
-                httpOnly: true,
-                path: "/",
-                // sameSite: "none",
-                // domain: ""
-                // TODO: ensure cross-domain cookie sharing
-                // store.com -- initial cookie
-                // matheus.store.com -- cookie does not exist here
-            });
+
 
         }),
     login: baseProcedure
@@ -94,17 +80,9 @@ export const authRouter = createTRPCRouter({
                 });
             }
 
-            const cookies = await getCookies();
-            cookies.set({
-                name: AUTH_COOKIE,
+            await generateAuthCookie({
+                prefix: ctx.db.config.cookiePrefix,
                 value: data.token,
-                httpOnly: true,
-                path: "/",
-                // sameSite: "none",
-                // domain: ""
-                // TODO: ensure cross-domain cookie sharing
-                // store.com -- initial cookie
-                // matheus.store.com -- cookie does not exist here
             });
 
             return data;
