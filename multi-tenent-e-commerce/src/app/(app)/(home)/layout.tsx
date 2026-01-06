@@ -19,10 +19,6 @@ const Layout = async ({ children }: Props) => {
       trpc.categories.getMany.queryOptions(),
     );
 
-
-
-
-
     return(
         <div className="flex flex-col min-h-screen">
             <Navbar />
