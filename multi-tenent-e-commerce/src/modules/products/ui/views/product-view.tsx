@@ -12,6 +12,18 @@ import { LinkIcon, StarIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Fragment } from "react";
+//import { CartButton } from "../components/cart-button";
+import dynamic from "next/dynamic";
+
+const CartButton = dynamic(
+    () => import("../components/cart-button").then(
+        (mod) => mod.CartButton,
+    ),
+    {
+        ssr: false,
+        loading: () => <Button disabled className="flex-1 bg-pink-400">Add to cart</Button>
+    },
+);
 
 interface ProductViewProps {
     productId: string;
@@ -82,7 +94,6 @@ export const ProductView = ({ productId, tenantSlug}:ProductViewProps ) => {
                                     {5} ratings
                                 </p>
                             </div>
-
                         </div>
 
                         <div className="p-6">
@@ -93,21 +104,17 @@ export const ProductView = ({ productId, tenantSlug}:ProductViewProps ) => {
                                     No description provided
                                 </p>
                             )}
-
                         </div>
-
                     </div>
 
                     <div className="col-span-2">
                         <div className="border-t lg:border-t-0 lg:border-l h-full">
                             <div className="flex flex-col gap-4 p-6 border-b">
                                 <div className="flex flex-row items-center gap-2">
-                                    <Button
-                                      variant="elevated"
-                                      className="flex-1 bg-pink-400"
-                                    >
-                                        Add to cart
-                                    </Button>
+                                    <CartButton 
+                                      productId={productId}
+                                      tenantSlug={tenantSlug}
+                                    />
                                     <Button 
                                       className="size-12"
                                       variant="elevated"
@@ -118,15 +125,12 @@ export const ProductView = ({ productId, tenantSlug}:ProductViewProps ) => {
                                     </Button>
 
                                 </div>
-
                                 <p className="text-center font-medium">
                                     {data.refundPolicy === "no-refunds"
                                       ? "No refunds"
                                       : `${data.refundPolicy} money back guarantee`
                                     }
-
                                 </p>
-
                             </div>
 
                             <div className="p-6">
@@ -136,9 +140,7 @@ export const ProductView = ({ productId, tenantSlug}:ProductViewProps ) => {
                                         <StarIcon className="size-4 fill-black"/>
                                         <p>({5})</p>
                                         <p className="text-base">{5} ratings</p>
-
                                     </div>
-
                                 </div>
 
                                 <div
@@ -154,16 +156,11 @@ export const ProductView = ({ productId, tenantSlug}:ProductViewProps ) => {
                                             <div className="font-medium">
                                                 {25}%
                                             </div>
-
                                         </Fragment>
                                     ))}
-
                                 </div>
-
                             </div>
-
                         </div>
-
                     </div>
                 </div>
             </div>
