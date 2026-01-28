@@ -12,6 +12,7 @@ import { Fragment, useState } from "react";
 //import { CartButton } from "../components/cart-button";
 import dynamic from "next/dynamic";
 import { toast } from "sonner";
+import { RichText } from "@payloadcms/richtext-lexical/react";
 
 const CartButton = dynamic(
     () => import("../components/cart-button").then(
@@ -101,7 +102,7 @@ export const ProductView = ({ productId, tenantSlug}:ProductViewProps ) => {
 
                         <div className="p-6">
                             {data.description ? (
-                                <p>{data.description}</p>
+                                <RichText data={data.description}/>
                             ): (
                                 <p className="font-medium text-muted-foreground italic">
                                     No description provided
@@ -180,3 +181,20 @@ export const ProductView = ({ productId, tenantSlug}:ProductViewProps ) => {
         </div>
     );
 };
+
+export const ProductViewSkeleton = () =>  {
+    return (
+        <div className="px-4 lg:px-12 py-10">
+            <div className="border rounded-sm bg-white overflow-hidden">
+                <div className="relative aspect-[3.9] border-b">
+                    <Image 
+                      src={"/globe.png"}
+                      alt={"Placeholder"}
+                      fill
+                      className="object-cover"
+                    />
+                </div>
+            </div>
+        </div>
+    );
+}
