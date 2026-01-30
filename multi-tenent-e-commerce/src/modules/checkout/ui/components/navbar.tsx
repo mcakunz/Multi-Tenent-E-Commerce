@@ -1,9 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { generateTenantURL } from "@/lib/utils";
-import { useTRPC } from "@/trpc/client";
-import { useSuspenseQuery } from "@tanstack/react-query";
 import Link from "next/link";
-
 
 interface Props {
     slug: string;

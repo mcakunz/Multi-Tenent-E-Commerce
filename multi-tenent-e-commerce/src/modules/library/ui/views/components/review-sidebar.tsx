@@ -1,8 +1,6 @@
 import { useTRPC } from "@/trpc/client";
-import { useQuery, useSuspenseQuery } from "@tanstack/react-query";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { ReviewForm } from "./review-form";
-
-
 interface Props {
     productId: string;
 }

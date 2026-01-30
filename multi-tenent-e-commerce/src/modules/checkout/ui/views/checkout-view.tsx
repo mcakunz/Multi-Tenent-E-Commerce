@@ -4,7 +4,6 @@ import { useTRPC } from "@/trpc/client";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useCart } from "../../hooks/use-cart";
 import { useEffect } from "react";
-import { error } from "console";
 import { toast } from "sonner";
 import { generateTenantURL } from "@/lib/utils";
 import { CheckoutItem } from "../components/checkout-item";
@@ -30,7 +29,7 @@ export const CheckoutView = ({ tenantSlug }: CheckoutViewProps) => {
 
     const purchase = useMutation(trpc.checkout.purchase.mutationOptions({
         onMutate: () => {
-            setStates:({ success: false, cancel: false });
+            setStates({ success: false, cancel: false });
         },
         onSuccess: (data) => {
             window.location.href = data.url;

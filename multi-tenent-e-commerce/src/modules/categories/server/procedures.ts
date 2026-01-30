@@ -1,6 +1,4 @@
 import { baseProcedure, createTRPCRouter } from "@/trpc/init";
-import { getPayload } from 'payload'
-import configPromise from '@payload-config'
 import { Category } from "@/payload-types";
 
 export const categoriesRouter = createTRPCRouter({

@@ -1,7 +1,3 @@
-import configPromise from '@payload-config'
-import { Category } from '@/payload-types';
-import { getPayload } from 'payload'
-
 import { Navbar } from "@/modules/home/ui/components/navbar";
 import { Footer } from "@/modules/home/ui/components/footer";
 import { SearchFilters, SearchFiltersSkeleton } from "@/modules/home/ui/components/search-filters";

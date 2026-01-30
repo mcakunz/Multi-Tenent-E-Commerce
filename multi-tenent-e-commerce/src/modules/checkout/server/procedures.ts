@@ -1,8 +1,7 @@
-import { Category, Media, Product, Tenant } from "@/payload-types";
+import { Media, Tenant } from "@/payload-types";
 import { baseProcedure, createTRPCRouter, protectedProcedure } from "@/trpc/init";
-import { getPayload, Sort, Where } from 'payload'
 import {z} from "zod";
-import { DEFAULT_LIMIT, PLATFORM_FEE_PERCENTAGE } from "@/constants";
+import { PLATFORM_FEE_PERCENTAGE } from "@/constants";
 import { TRPCError } from "@trpc/server";
 import type Stripe from "stripe";
 import { CheckoutMetadata, ProductMetadata } from "../types";
