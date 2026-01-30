@@ -1,6 +1,5 @@
 "use client";
 import { CategoriesSidebar } from "./categories-sidebar";
-import { Category } from "@/payload-types";
 import { CategoryDropdown } from "./category-dropdown";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";

@@ -1,12 +1,8 @@
-import { Category, Media, Product, Tenant } from "@/payload-types";
-import { baseProcedure, createTRPCRouter, protectedProcedure } from "@/trpc/init";
-import { getPayload, Sort, Where } from 'payload'
+import { Media, Tenant } from "@/payload-types";
+import { createTRPCRouter, protectedProcedure } from "@/trpc/init";
 import {z} from "zod";
 import { DEFAULT_LIMIT } from "@/constants";
-
-import { headers as getHeaders } from "next/headers";
 import { TRPCError } from "@trpc/server";
-
 
 export const libraryRouter = createTRPCRouter({
   getOne: protectedProcedure

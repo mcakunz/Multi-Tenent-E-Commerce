@@ -35,9 +35,9 @@ export const SearchFilters = () => {
                 <Categories data={data} />
             </div>
             <BreadcrumbNavigation 
-              activeCategoryName={activeCategoryName}
               activeCategory={activeCategory}
-              activeSubcategoryName={activeSubcategory}
+              activeCategoryName={activeCategoryName}
+              activeSubcategoryName={activeSubcategoryName}
             />
         </div>
     );

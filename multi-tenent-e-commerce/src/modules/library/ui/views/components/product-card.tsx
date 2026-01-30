@@ -1,9 +1,6 @@
-import { formatCurrency, generateTenantURL } from "@/lib/utils";
 import { StarIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-
 interface ProductCardProps {
     id: string;
     name: string;
