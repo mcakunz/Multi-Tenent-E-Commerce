@@ -1,6 +1,6 @@
 import { Navbar } from "@/modules/home/ui/components/navbar";
-import { Footer } from "@/modules/home/ui/components/footer";
 import { SearchFilters, SearchFiltersSkeleton } from "@/modules/home/ui/components/search-filters";
+import { Footer } from "@/modules/tenants/ui/components/footer";
 
 import { getQueryClient, trpc } from '@/trpc/server';
 import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
