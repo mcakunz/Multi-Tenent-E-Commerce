@@ -66,6 +66,7 @@ export const Products : CollectionConfig = {
                 description:
                 "Protected content only visible to customers after purchase. Add product documentation, downloadable files, geting started guides, and bonus materials. Supports markdown formatting"
             }
+            
         },
         {
             name: "isPrivate",
